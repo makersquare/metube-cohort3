@@ -1,4 +1,4 @@
-class MoviesController < ApplicationController
+class VideosController < ApplicationController
   
   def show_gladiator
     @movie = {
@@ -17,6 +17,20 @@ class MoviesController < ApplicationController
       description: "Quite the random movie, but a classic for sure!"
     }
     
+  end
+
+  def show_seinfeld
+    @movie = {
+      title: 'Seinfeld',
+      video_id: 'm5OoR0Qjrlo'
+    }
+  end
+
+  def show_friends
+    @movie = {
+      title: 'Friends',
+      video_id: 'XIsVHF2bwVs'
+    }
   end
 
 end
