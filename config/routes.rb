@@ -1,8 +1,8 @@
 MetubeCohort3::Application.routes.draw do
 
-  get '/gladiator' => 'videos#show_gladiator'
-  get '/matilda' => 'videos#show_matilda'  
-  get '/seinfeld' => 'videos#show_seinfeld'  
-  get '/friends' => 'videos#show_friends'
+  get '/videos/gladiator' => 'videos#show_gladiator'
+  get '/videos/matilda' => 'videos#show_matilda'  
+  get '/videos/seinfeld' => 'videos#show_seinfeld'  
+  get '/videos/friends' => 'videos#show_friends'
 
 end
