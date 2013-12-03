@@ -11,14 +11,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131203151822) do
+ActiveRecord::Schema.define(version: 20131203215720) do
 
-  create_table "videos", force: true do |t|
-    t.string   "title"
-    t.string   "youtube_id"
-    t.text     "description"
+  create_table "ratings", force: true do |t|
+    t.integer "value"
+    t.integer "videos_id"
+    t.integer "users_id"
+  end
+
+  create_table "users", force: true do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "email",      null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "users", ["email"], name: "index_users_on_email"
+
+  create_table "videos", force: true do |t|
+    t.string   "title"
+    t.string   "youtube_id",  null: false
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+  end
+
+  add_index "videos", ["youtube_id"], name: "index_videos_on_youtube_id"
 
 end
