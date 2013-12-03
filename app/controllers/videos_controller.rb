@@ -1,12 +1,10 @@
 class VideosController < ApplicationController
-
   def show
-    id = params[:id_from_user]
+    id = params[:id]
     @video = Video.find(id)
   end
-  
-  def show_all
+
+  def index
     @videos = Video.all
   end
-
 end
