@@ -1,9 +1,12 @@
 MetubeCohort3::Application.routes.draw do
   root 'videos#index'
 
-  resources :videos
+  resources :videos do
+    post 'rate', on: :member
+  end
+
   resources :users do
-    resources :videos
+    resources :videos, only: [:index, :show]
   end
 
   get 'signin', controller: :logins, action: :new, as: :signin

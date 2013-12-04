@@ -15,8 +15,8 @@ ActiveRecord::Schema.define(version: 20131203215720) do
 
   create_table "ratings", force: true do |t|
     t.integer "value"
-    t.integer "videos_id"
-    t.integer "users_id"
+    t.integer "video_id"
+    t.integer "user_id"
   end
 
   create_table "users", force: true do |t|

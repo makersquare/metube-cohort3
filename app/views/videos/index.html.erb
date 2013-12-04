@@ -1,10 +1,10 @@
-<h1> All the videos! </h1>
+<h1> All the videos<%= " from #{@user.full_name}" if @user %>!</h1>
 
 <table>
   <thead>
     <tr>
       <th>Video Title</th>
-      <th></th>
+      <th>Rating</th>
       <th></th>
       <th></th>
     </tr>
@@ -13,6 +13,7 @@
     <% @videos.each do |video| %>
       <tr>
         <td><%= video.title %></td>
+        <td><%= video.avg_rating %></td>
         <td><%= link_to 'Show', video %></td>
         <td><%= link_to 'Edit', edit_video_path(video) %></td>
         <td><%= link_to 'Destroy', video, method: :delete, data: { confirm: 'Are you sure?' } %></td>
