@@ -3,4 +3,8 @@ class Video < ActiveRecord::Base
   has_many :ratings
 
   validates :user_id, :youtube_id, :title, presence: true
+
+  def avg_rating
+    self.ratings.average('value')
+  end
 end

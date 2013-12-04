@@ -1,10 +1,9 @@
 <!-- This is the form that logs a user in -->
 
-
 <h1>Sign in</h1>
 <%= form_tag signin_path do %>
   <label for="email">Email</label>
-  <%= text_field_tag :email %>
+  <%= text_field_tag :email_address %>
   <%= submit_tag "Sign in" %>
 <% end %>
 

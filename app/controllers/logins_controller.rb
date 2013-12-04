@@ -3,7 +3,7 @@ class LoginsController < ApplicationController
   end
 
   def create
-    email = params[:email]
+    email = params[:email_address]
     user = User.find_by_email(email)
     unless user
       redirect_to signin_path
