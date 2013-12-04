@@ -1,7 +1,12 @@
-<%= link_to "All Users", users_path %>
 <br />
 <h1>Here is a specific user!</h1>
 
-<%= @user.first_name %>
-<%= @user.last_name %>
-<%= @user.email %>
+First name:<%= @user.first_name %><br />
+Last name:<%= @user.last_name %><br />
+Email:<%= @user.email %><br />
+Videos:
+<ul>
+<% @user.videos.all.each do |video| %>
+  <li><%= link_to video.title, video_path(video.id) %></li>
+<% end %>
+<ul>

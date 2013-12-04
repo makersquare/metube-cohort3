@@ -9,20 +9,18 @@ class UsersController < ApplicationController
   end
 
   def new
-    redirect_to signin_path
     @user = User.new
   end
 
   def create
     @user = User.new(user_params)
     if @user.save
+      session[:current_user_id] = @user.id
+      flash[:notice] = "You have successfully created a new user and logged in!"
       redirect_to @user
     else
       render 'new'
     end
-  end
-
-  def edit
   end
 
   private

@@ -1,8 +1,11 @@
 <!-- This is the form that logs a user in -->
 
-Sign in you fuck:
+
+<h1>Sign in</h1>
 <%= form_tag signin_path do %>
   <label for="email">Email</label>
   <%= text_field_tag :email %>
-  <%= submit_tag "Submit You Fuck" %>
+  <%= submit_tag "Sign in" %>
 <% end %>
+
+<p>Don't have an account yet? <%= link_to "Click here", new_user_path %></p>
