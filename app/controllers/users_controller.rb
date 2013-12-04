@@ -9,6 +9,7 @@ class UsersController < ApplicationController
   end
 
   def new
+    redirect_to signin_path
     @user = User.new
   end
 

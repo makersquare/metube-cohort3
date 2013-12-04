@@ -1,0 +1,11 @@
+<nav>
+<% if current_user? %>
+  <%= link_to "Logout", logout_path %>
+<% else %>
+  <%= link_to "Sign In", signin_path %>
+<% end %>
+<br />
+<%= link_to "All Videos", videos_path %>
+<br />
+<%= link_to "All Users", users_path %>
+</nav>

@@ -5,7 +5,7 @@ class VideosController < ApplicationController
   end
 
   def index
-    user = User.find(params[:user_id])
+    user = User.find(params[:user_id]) if params[:user_id]
     @videos = user ? user.videos.all : Video.all
   end
 
@@ -15,6 +15,7 @@ class VideosController < ApplicationController
 
   def create
     @video = Video.new(video_params)
+    @video.user_id = current_user.id
     if @video.save
       redirect_to @video
     else

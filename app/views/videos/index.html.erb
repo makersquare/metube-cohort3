@@ -5,6 +5,5 @@
 </ul>
 
 <br />
-<%= link_to 'Create Video', new_video_path %>
+<%= link_to('Create Video', new_video_path) if current_user? %>
 <br />
-<%= link_to 'All Users', users_path %>
