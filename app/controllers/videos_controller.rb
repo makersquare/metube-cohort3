@@ -1,7 +1,6 @@
 class VideosController < ApplicationController
   def show
-    id = params[:id]
-    @video = Video.find(id)
+    @video = Video.find(params[:id])
   end
 
   def index
@@ -21,6 +20,22 @@ class VideosController < ApplicationController
     else
       render 'new'
     end
+  end
+
+  def edit
+    @video = Video.find(params[:id])
+  end
+
+  def update
+    @video = Video.find(params[:id])
+    @video.update(video_params)
+    redirect_to root_path
+  end
+
+  def destroy
+    @video = Video.find(params[:id])
+    @video.destroy
+    redirect_to root_path
   end
 
   private

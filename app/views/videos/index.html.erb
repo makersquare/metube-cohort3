@@ -1,9 +1,16 @@
-<ul> All the videos!
-  <% @videos.each do |video| %>
-    <li><%= link_to video.title, video_path(video.id) %></li>
-  <% end %>
-</ul>
+<h1> All the videos! </h1>
 
+<table>
+  <tbody>
+    <% @videos.each do |video| %>
+      <tr>
+        <td><%= video.title %></td>
+        <td><%= link_to 'Show', video %></td>
+        <td><%= link_to 'Edit', edit_video_path(video) %></td>
+        <td><%= link_to 'Destroy', video, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 <br />
 <%= link_to('Create Video', new_video_path) if current_user? %>
-<br />
