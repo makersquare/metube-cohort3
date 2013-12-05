@@ -1,6 +1,6 @@
 class Rating < ActiveRecord::Base
-  belongs_to :videos
-  belongs_to :users
+  belongs_to :video
+  belongs_to :user
 
   validates :user_id, :video_id, presence: true
   validates :video_id, uniqueness: { scope: :user_id }
