@@ -38,15 +38,6 @@ class VideosController < ApplicationController
     redirect_to root_path
   end
 
-  def rate
-    @rating = Rating.where({user_id: current_user.id, video_id: params[:id]}).first || Rating.new
-    @rating.value = params[:value]
-    @rating.user_id = current_user.id
-    @rating.video_id = params[:id]
-    @rating.save
-    redirect_to :back
-  end
-
   private
 
   def video_params
