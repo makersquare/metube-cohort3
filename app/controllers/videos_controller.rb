@@ -4,8 +4,7 @@ class VideosController < ApplicationController
   end
 
   def index
-    @user = User.find(params[:user_id]) if params[:user_id]
-    @videos = @user ? @user.videos.all : Video.all
+    @videos = Video.all
   end
 
   def new
@@ -14,12 +13,8 @@ class VideosController < ApplicationController
 
   def create
     @video = Video.new(video_params)
-    @video.user_id = current_user.id
-    if @video.save
-      redirect_to @video
-    else
-      render 'new'
-    end
+    @video.save
+    redirect_to @video
   end
 
   def edit
@@ -36,15 +31,6 @@ class VideosController < ApplicationController
     @video = Video.find(params[:id])
     @video.destroy
     redirect_to root_path
-  end
-
-  def rate
-    @rating = Rating.where({user_id: current_user.id, video_id: params[:id]}).first || Rating.new
-    @rating.value = params[:value]
-    @rating.user_id = current_user.id
-    @rating.video_id = params[:id]
-    @rating.save
-    redirect_to :back
   end
 
   private

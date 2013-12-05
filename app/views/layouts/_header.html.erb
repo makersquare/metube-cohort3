@@ -1,6 +1,6 @@
 <nav>
 <% if current_user? %>
-  Hello, <%= current_user.full_name %>! <%= link_to "Logout", logout_path, method: :delete %>
+  Hello, <%= current_user.first_name %>! <%= link_to "Logout", logout_path, method: :delete %>
 <% else %>
   <%= link_to "Sign In", signin_path %>
 <% end %>

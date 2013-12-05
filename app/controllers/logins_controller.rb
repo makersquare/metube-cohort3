@@ -4,7 +4,7 @@ class LoginsController < ApplicationController
 
   def create
     email = params[:email_address]
-    user = User.find_by_email(email)
+    user = User.find_by_email_address(email)
     unless user
       redirect_to signin_path
       flash[:notice] = "Please enter an existing user's email"
