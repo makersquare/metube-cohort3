@@ -5,6 +5,6 @@ class Video < ActiveRecord::Base
   validates :user_id, :youtube_id, :title, presence: true
 
   def avg_rating
-    self.ratings.average('value')
+    self.ratings.average('value') || 0
   end
 end
