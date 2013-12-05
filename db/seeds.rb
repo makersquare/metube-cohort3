@@ -6,6 +6,21 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+User.destroy_all
+
+users = [
+  {first_name: "Mike", last_name: "Ornellas"},
+  {first_name: "Amanda", last_name: "Contreras"},
+  {first_name: "Shaan", last_name: "Shah"},
+  {first_name: "Gene", last_name: "Le"},
+  {first_name: "Michael", last_name: "Jordan"}
+]
+
+users.each do |user|
+  User.create(first_name: user[:first_name], last_name: user[:last_name])
+  email_address = User.last.first_name.downcase + "@themakersquare.com"
+  User.last.update_attributes(email_address: email_address)
+end
 
 Video.destroy_all
 
@@ -32,6 +47,10 @@ videos = {
   }
 }
 
+num = 0
 videos.each do |key, video|
   Video.create(video)
+  Video.last.user_id = User.first.id + num
+  num += 1
 end
+
