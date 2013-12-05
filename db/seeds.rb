@@ -50,7 +50,8 @@ videos = {
 num = 0
 videos.each do |key, video|
   Video.create(video)
-  Video.last.user_id = User.first.id + num
+  current_video = Video.last
+  current_video.user_id = User.first.id + num
+  current_video.save
   num += 1
 end
-
