@@ -1,8 +1,6 @@
 require 'spec_helper'
 
 describe User do
-  # validates :first_name, :last_name, presence: true
-  # validates :email_address, presence: true, uniqueness: true
   describe 'validations' do
     describe 'presence' do
       context 'when given a :first_name, :last_name, and :email_address' do
