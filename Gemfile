@@ -2,6 +2,10 @@ source 'https://rubygems.org'
 
 gem 'hirb'
 
+gem 'unirest'
+
+gem 'figaro'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.1'
 
