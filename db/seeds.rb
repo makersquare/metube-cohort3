@@ -54,6 +54,7 @@ puts "Creating four videos"
 videos.each do |key, video|
   v = Video.new(video)
   v.user_id = User.order("RANDOM()").first.id
+  v.save
 end
 puts "Created four videos"
 
