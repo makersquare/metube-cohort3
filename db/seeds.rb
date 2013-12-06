@@ -6,8 +6,26 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+User.destroy_all
+puts "Destroyed all users"
+
+users = [
+  {first_name: "Mike", last_name: "Ornellas"},
+  {first_name: "Amanda", last_name: "Contreras"},
+  {first_name: "Shaan", last_name: "Shah"},
+  {first_name: "Gene", last_name: "Le"},
+  {first_name: "Michael", last_name: "Jordan"}
+]
+
+puts "Creating five users"
+users.each do |user|
+  email_address = user[:first_name].downcase + "@themakersquare.com"
+  User.create(first_name: user[:first_name], last_name: user[:last_name], email_address: email_address)
+end
+puts "Created five users"
 
 Video.destroy_all
+puts "Destroyed all videos"
 
 videos = {
   "gladiator" => {
@@ -32,6 +50,10 @@ videos = {
   }
 }
 
+puts "Creating four videos"
 videos.each do |key, video|
-  Video.create(video)
+  v = Video.new(video)
+  v.user_id = User.order("RANDOM()").first.id
 end
+puts "Created four videos"
+
